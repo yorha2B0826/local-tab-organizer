@@ -28,7 +28,8 @@ export type ClassificationSource =
   | "keyword-taxonomy"
   | "domain-aggregation"
   | "similarity-cluster"
-  | "local-hybrid";
+  | "local-hybrid"
+  | "gemini-nano-local";
 
 export interface TabGroupSuggestion {
   id: string;
@@ -61,6 +62,7 @@ export interface Settings {
   minTabsPerGroup: number;
   autoCollapseAfterApply: boolean;
   includePinnedTabs: boolean;
+  enableGeminiNanoEnhancement: boolean;
   rules: UserRule[];
 }
 

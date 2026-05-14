@@ -5,6 +5,7 @@ import { GroupSuggestionEditor } from "../components/GroupSuggestionEditor";
 import { TabList } from "../components/TabList";
 import { WarningList } from "../components/WarningList";
 import { DEFAULT_SETTINGS } from "../core/constants";
+import { enhanceClassificationWithGeminiNano } from "../core/geminiNano";
 import type { ClassificationResult, Settings, TabGroupSuggestion, TabInfo } from "../core/types";
 
 type Response<T> = { ok: true; data: T } | { ok: false; error: string };
@@ -51,9 +52,10 @@ export function SidePanelApp() {
 
   const classify = () => run(async () => {
     const data = await send<{ tabs: TabInfo[]; result: ClassificationResult }>({ type: "CLASSIFY_TABS_LOCAL" });
+    const enhanced = await enhanceClassificationWithGeminiNano(data.tabs, data.result, settings);
     setTabs(data.tabs);
-    setResult(data.result);
-    setWarnings(data.result.warnings);
+    setResult(enhanced);
+    setWarnings(enhanced.warnings);
   });
 
   const updateGroup = (group: TabGroupSuggestion) => {
@@ -81,6 +83,9 @@ export function SidePanelApp() {
           <span>未分组 {result?.ungroupedTabIds.length ?? tabs.length}</span>
         </div>
         <p className="privacy-line">所有分类均在本地完成，不会发送标签页数据。</p>
+        {settings.enableGeminiNanoEnhancement ? (
+          <p className="privacy-line">已启用 Chrome 内置 Gemini Nano 本地增强；不可用时会自动回退到本地规则。</p>
+        ) : null}
       </Card>
 
       <div className="actions">

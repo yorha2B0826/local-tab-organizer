@@ -59,6 +59,8 @@ export function OptionsApp() {
         <label>最小成组标签数<TextInput type="number" value={settings.minTabsPerGroup} onChange={(event) => setSettings({ ...settings, minTabsPerGroup: Number(event.target.value) })} /></label>
         <Toggle label="应用后自动折叠" checked={settings.autoCollapseAfterApply} onChange={(value) => setSettings({ ...settings, autoCollapseAfterApply: value })} />
         <Toggle label="包含固定标签页" checked={settings.includePinnedTabs} onChange={(value) => setSettings({ ...settings, includePinnedTabs: value })} />
+        <Toggle label="启用 Chrome 内置 Gemini Nano 本地增强" checked={settings.enableGeminiNanoEnhancement} onChange={(value) => setSettings({ ...settings, enableGeminiNanoEnhancement: value })} />
+        <p className="privacy-line">该增强模式仅调用 Chrome 浏览器内置本地模型，无需密钥，也不会连接远程模型服务。若当前 Chrome 不支持，会自动使用普通本地分类。</p>
       </Card>
       <Card>
         <div className="section-header">

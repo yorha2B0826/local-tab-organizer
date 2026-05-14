@@ -6,7 +6,7 @@ const tabs: TabInfo[] = [
   { id: 1, windowId: 1, title: "A", url: "https://a.com", domain: "a.com", pinned: false },
   { id: 2, windowId: 1, title: "B", url: "https://b.com", domain: "b.com", pinned: false }
 ];
-const settings: Settings = { maxGroups: 8, minTabsPerGroup: 1, autoCollapseAfterApply: false, includePinnedTabs: false, rules: [] };
+const settings: Settings = { maxGroups: 8, minTabsPerGroup: 1, autoCollapseAfterApply: false, includePinnedTabs: false, enableGeminiNanoEnhancement: false, rules: [] };
 
 function result(): ClassificationResult {
   return {

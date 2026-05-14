@@ -2,7 +2,7 @@ import { describe, expect, test } from "vitest";
 import { classifyTabsLocally } from "../core/localClassifier";
 import type { Settings, TabInfo } from "../core/types";
 
-const settings: Settings = { maxGroups: 8, minTabsPerGroup: 2, autoCollapseAfterApply: false, includePinnedTabs: false, rules: [] };
+const settings: Settings = { maxGroups: 8, minTabsPerGroup: 2, autoCollapseAfterApply: false, includePinnedTabs: false, enableGeminiNanoEnhancement: false, rules: [] };
 function tab(id: number, title: string, url: string, domain: string): TabInfo {
   return { id, windowId: 1, title, url, domain, pinned: false };
 }

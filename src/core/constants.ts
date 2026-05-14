@@ -17,6 +17,7 @@ export const DEFAULT_SETTINGS: Settings = {
   minTabsPerGroup: 2,
   autoCollapseAfterApply: false,
   includePinnedTabs: false,
+  enableGeminiNanoEnhancement: false,
   rules: []
 };
 

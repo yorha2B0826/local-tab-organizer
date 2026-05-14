@@ -34,6 +34,7 @@ export function sanitizeSettings(input: unknown): Settings {
     minTabsPerGroup: Number.isFinite(raw.minTabsPerGroup) ? Math.max(1, Math.min(20, Number(raw.minTabsPerGroup))) : DEFAULT_SETTINGS.minTabsPerGroup,
     autoCollapseAfterApply: typeof raw.autoCollapseAfterApply === "boolean" ? raw.autoCollapseAfterApply : DEFAULT_SETTINGS.autoCollapseAfterApply,
     includePinnedTabs: typeof raw.includePinnedTabs === "boolean" ? raw.includePinnedTabs : DEFAULT_SETTINGS.includePinnedTabs,
+    enableGeminiNanoEnhancement: typeof raw.enableGeminiNanoEnhancement === "boolean" ? raw.enableGeminiNanoEnhancement : DEFAULT_SETTINGS.enableGeminiNanoEnhancement,
     rules
   };
 }
